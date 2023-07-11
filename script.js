@@ -1,10 +1,22 @@
 
+class book{
+    constructor(title,author,pages,read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    get title(){
+        return this._title;
+    }
+    set title(value){
+        if(value.length<4){
+            alert('length of author is less than 4');
+            return ;
+        }
+        this._title = value;
+    }
 
-function book(title,author,pages,read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
 }
 
 const book1 = new book("TheHobbit","J.R.R.",298,false);
@@ -74,7 +86,8 @@ form1.addEventListener('submit',(e)=>{
         myL.push(pair[1]);
       }
       let bookNew = new book(myL[0],myL[1],myL[2],myL[3]);
-      myLibrary.push(bookNew);
+      if(bookNew.title != undefined){
+      myLibrary.push(bookNew);}
       size = myLibrary.length;
       display();
       
